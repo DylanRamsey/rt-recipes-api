@@ -34,7 +34,7 @@ const updateRecipe = asyncHandler(async (req, res) => {
     const recipeRecord = await Recipe.findById(req.params.id)
     if(!recipeRecord) {
       res.status(400)
-      throw new Error('Recipe not found')
+      //throw new Error('Recipe not found')
     }
     
     const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {
@@ -54,7 +54,7 @@ const deleteRecipe = asyncHandler(async (req, res) => {
     const recipeToDelete = await Recipe.findById(req.params.id)
     if(!recipeToDelete) {
       res.status(400)
-      throw new Error('Recipe not found')
+      //throw new Error('Recipe not found')
     }
     await recipeToDelete.deleteOne()
     res.status(200).json({ id: req.params.id })

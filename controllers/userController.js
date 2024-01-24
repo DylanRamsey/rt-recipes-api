@@ -11,7 +11,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const { name, email, password} = req.body
     if(!name || !email || !password) {
       res.status(400)
-      throw new Error('Please add all fields')
+      //throw new Error('Please add all fields')
     }
 
     //check if user exist
@@ -20,7 +20,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
     if(userExists) {
       res.status(400)
-      throw new Error('User already exist')
+      //throw new Error('User already exist')
     }
 
     // Hash password
@@ -43,7 +43,7 @@ const registerUser = asyncHandler(async (req, res) => {
       })
     } else {
       res.status(400)
-      throw new Error('Invail user data')
+      //throw new Error('Invail user data')
     }
   } catch (err) {
     console.error(err);
@@ -68,7 +68,7 @@ const loginUser = asyncHandler(async (req, res) => {
       })
     } else {
       res.status(400)
-      throw new Error('Invalid credentials')
+      //throw new Error('Invalid credentials')
     }
   }catch (err) {
     console.error(err);
